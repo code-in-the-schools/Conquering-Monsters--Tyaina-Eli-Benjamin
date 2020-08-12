@@ -62,7 +62,7 @@ class Player(object):
     self.x = 50
     self.y = 50
     Inventory = []
-    if Player(self.x and self.y) == Potion(self.x and self.y):
+    if self.x and Potion.x == self.y and Potion.y:
      Potion.append(Inventory)
      print(Inventory)
   
@@ -91,12 +91,11 @@ class Player(object):
           print("Player's Health:" , abs(PlayerHealth))
     
       if MonsterHealth == 0:
-        print('CONGRADULATIONS!!! >> You have defated the Monster! << You Advaced to next level')
-        
+        print('CONGRADULATIONS!!! >> You Have Defated The Monster << You Advaced to next level')
+        Fighting = False  
     if PlayerHealth == 0:
         print('You Lose')
-    
-Fighting = False
+        Fighting = False
 
 
   #def movement(self):
