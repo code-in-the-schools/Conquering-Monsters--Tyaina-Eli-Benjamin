@@ -62,7 +62,7 @@ class Player(object):
     self.x = 50
     self.y = 50
     Inventory = []
-    if self.x and Potion.x == self.y and Potion.y:
+    if self.x == Potion.x and self.y == Potion.y:
      Potion.append(Inventory)
      print(Inventory)
   
@@ -82,12 +82,12 @@ class Player(object):
       if c == 'Punch':
         MonsterHealth = MonsterHealth - 20
         print("Monster's Health:", MonsterHealth ,'\n' ,">> Monster's turn <<")
-        PlayerHealth = MonsterAttack - PlayerHealth
+        PlayerHealth = PlayerHealth - MonsterHealth
         print("Player's Health:" , abs(PlayerHealth))
       if c == 'Block':
           print("Monster's turn")
           MonsterAttack = MonsterAttack // 2
-          PlayerHealth = MonsterAttack - PlayerHealth
+          PlayerHealth = PlayerHealth - MonsterAttack
           print("Player's Health:" , abs(PlayerHealth))
     
       if MonsterHealth == 0:
