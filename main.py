@@ -91,11 +91,12 @@ class Player(object):
           print("Player's Health:" , abs(PlayerHealth))
     
       if MonsterHealth == 0:
-        print('CONGRADULATIONS you have defated the monster!Advaced to next level')
+        print('CONGRADULATIONS!!! >> You have defated the Monster! << You Advaced to next level')
         
     if PlayerHealth == 0:
         print('You Lose')
-    Fighting = False
+    
+Fighting = False
 
 
   #def movement(self):
@@ -107,18 +108,6 @@ class Player(object):
     #if key[pygame.K_UP]:
       #self.y -= 1
   
-  def attack():
-    Attacks = ['Punch', 'Block']
-
-    L2 = str(input("Type an attack "))
-
-    if L2 == input('Punch'):
-     Player.forward(10)
-    print("You have punched the monster")
-
-    if L2 == input('Block'): 
-     Player.forward(10)
-    print("You have redused the monsters next attack")
 
 
           
