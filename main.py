@@ -70,7 +70,7 @@ class Player(object):
     Attacks = ['Punch', 'Block']
     MonsterAttack = random.randrange(10)
     MonsterHealth = 100
-    PlayerHealth = 100
+    HitPoints = 0
     Fighting = True
     while Fighting:
       b = input('Attack? YES or NO. ')
@@ -82,30 +82,30 @@ class Player(object):
       if c == 'Punch':
         MonsterHealth = MonsterHealth - 20
         print("Monster's Health:", MonsterHealth ,'\n' ,">> Monster's turn <<")
-        PlayerHealth = PlayerHealth - MonsterHealth
-        print("Player's Health:" , abs(PlayerHealth))
+        HitPoints = HitPoints - MonsterHealth
+        print("Hit Points:" , abs(HitPoints))
       if c == 'Block':
           print("Monster's turn")
           MonsterAttack = MonsterAttack // 2
-          PlayerHealth = PlayerHealth - MonsterAttack
-          print("Player's Health:" , abs(PlayerHealth))
+          HitPoints = HitPoints - MonsterAttack
+          print("Hit Points:" , abs(HitPoints))
     
       if MonsterHealth == 0:
         print('CONGRADULATIONS!!! >> You Have Defated The Monster << You Advaced to next level')
         Fighting = False  
-    if PlayerHealth == 0:
+    if HitPoints == 100:
         print('You Lose')
         Fighting = False
 
 
-  #def movement(self):
-    #key = pygame.key.get_pressed()
+  def movement(self):
+    key = pygame.key.get_pressed()
 
-    #if key[pygame.K_DOWN]:
-      #self.y += 1
+    if key[pygame.K_DOWN]:
+      self.y += 1
 
-    #if key[pygame.K_UP]:
-      #self.y -= 1
+    if key[pygame.K_UP]:
+      self.y -= 1
   
 
 
