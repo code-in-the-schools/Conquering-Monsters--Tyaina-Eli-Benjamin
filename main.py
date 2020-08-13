@@ -81,22 +81,14 @@ class Player(object):
         print('You Lose')
         Fighting = False
 
-  def Inventory(self,screen):
-    self.x = 50
-    self.y = 50
-    Inventory = []
-    if self.x == Potion().x and self.y == Potion().y:
-      Potion.append(Inventory)
-      print(Inventory)
-
   def movement(self):
     key = pygame.key.get_pressed()
 
     if key[pygame.K_DOWN]:
-      self.y += 1
+       self.y += 1
 
     if key[pygame.K_UP]:
-      self.y -= 1
+       self.y -= 1
   
 
   #def move(self):
@@ -105,6 +97,13 @@ class Player(object):
     #self.x = pos[0]
 
 
+  def Inventory(self,screen):
+    self.x = 50
+    self.y = 50
+    Inventory = []
+    if self.x == Potion().x and self.y == Potion().y:
+      Potion.append(Inventory)
+      print(Inventory)
           
 pygame.init()
 screen_width = 700
