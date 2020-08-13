@@ -43,8 +43,8 @@ class Player(object):
    #self.image = pygame.transform.scale(self.image, (50, 50))
 
    
-   self.x = 50
-   self.y = 50
+   self.x = 350
+   self.y = 200
 
   def draw(self, surface):
     surface.blit(self.image, (self.x, self.y))
@@ -82,7 +82,7 @@ class Player(object):
           print("The Monster's Attack is now reduced to", MonsterAttack,'\n', "Hit Points:", abs(HitPoints))
     
       if MonsterHealth == 0:
-        print('CONGRADULATIONS!!! >> You Have Defated The Monster << You Advaced to next level')
+        print('CONGRADULATIONS!!! >> You Have Defated The Monster << Before You Go Collect Your Item. You Advaced to next level.')
         Monster.image = Potion.image
         Fighting = False  
       if HitPoints > 50:
