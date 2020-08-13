@@ -26,22 +26,13 @@ class Monster(object):
 
    Monster.image = pygame.image.load('Grey.png')
 
-   #self.image = pygame.transform.scale(self.image, (50, 50))
+   self.image = pygame.transform.scale(self.image, (50, 50))
 
-   self.y = 50
-   self.x = 100
+   self.y = 600
+   self.x = 350
    
   def draw(self, surface):
     surface.blit(self.image, (self.x, self.y))
-       
-  def Attack():
-    PlayerHealth = 100
-    MonsterHealth = 100
-    MonsterAttack = random.randint(5,10)
-    if MonsterHealth == 80:
-        print("Monster's turn")
-    PlayerHealth = MonsterAttack - PlayerHealth
-    print(PlayerHealth)
 
 class Player(object):
   def __init__(self):
@@ -49,7 +40,7 @@ class Player(object):
 
    Player.image = pygame.image.load('Pink.png')
 
-   self.image = pygame.transform.scale(self.image, (50, 50))
+   #self.image = pygame.transform.scale(self.image, (50, 50))
 
    
    self.x = 50
@@ -80,7 +71,7 @@ class Player(object):
         c = input('Choose your attack: ')
         print(c)
       if c == 'Punch':
-        MonsterHealth = MonsterHealth - 50
+        MonsterHealth = MonsterHealth - 20
         print("Monster's Health:", MonsterHealth ,'\n' ,">> Monster's turn <<",'\n','Monster Hits You With', MonsterAttack, 'Hit Points')
         HitPoints = HitPoints + MonsterAttack
         print("Hit Points:" , abs(HitPoints))
@@ -92,8 +83,9 @@ class Player(object):
     
       if MonsterHealth == 0:
         print('CONGRADULATIONS!!! >> You Have Defated The Monster << You Advaced to next level')
+        Monster.image = Potion.image
         Fighting = False  
-      if HitPoints > 180:
+      if HitPoints > 50:
         print('You Lose')
         Fighting = False
 
@@ -107,6 +99,11 @@ class Player(object):
     if key[pygame.K_UP]:
       self.y -= 1
   
+
+  #def move(self):
+    #pos = pygame.mouse.get_pos()
+    #self.y = pos[1]
+    #self.x = pos[0]
 
 
           
@@ -132,7 +129,8 @@ while running:
     Players.draw(screen)
     Players.HealthBar(screen)
     Players.Inventory(screen)
-    #Monsters.attack(screen)
     Monsters.draw(screen)
-    #Potions.draw(screen)
+    Players.movement()
+    #Potion.draw(screen)
+   #Players.move()
     pygame.display.update()
