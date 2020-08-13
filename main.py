@@ -48,14 +48,6 @@ class Player(object):
 
   def draw(self, surface):
     surface.blit(self.image, (self.x, self.y))
- 
-  def Inventory(self,screen):
-    self.x = 50
-    self.y = 50
-    Inventory = []
-    if self.x == Potion().x and self.y == Potion().y:
-     Potion.append(Inventory)
-     print(Inventory)
   
   def HealthBar(self,screen):
     Attacks = ['Punch', 'Block']
@@ -89,6 +81,13 @@ class Player(object):
         print('You Lose')
         Fighting = False
 
+  def Inventory(self,screen):
+    self.x = 50
+    self.y = 50
+    Inventory = []
+    if self.x == Potion().x and self.y == Potion().y:
+      Potion.append(Inventory)
+      print(Inventory)
 
   def movement(self):
     key = pygame.key.get_pressed()
