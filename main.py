@@ -28,7 +28,7 @@ class Monster(object):
 
    #self.image = pygame.transform.scale(self.image, (50, 50))
 
-   self.y = 100
+   self.y = 50
    self.x = 100
    
   def draw(self, surface):
@@ -49,7 +49,7 @@ class Player(object):
 
    Player.image = pygame.image.load('Pink.png')
 
-   #self.image = pygame.transform.scale(self.image, (50, 50))
+   self.image = pygame.transform.scale(self.image, (50, 50))
 
    
    self.x = 50
@@ -62,7 +62,7 @@ class Player(object):
     self.x = 50
     self.y = 50
     Inventory = []
-    if self.x == Potion.x and self.y == Potion.y:
+    if self.x == Potion().x and self.y == Potion().y:
      Potion.append(Inventory)
      print(Inventory)
   
@@ -80,20 +80,20 @@ class Player(object):
         c = input('Choose your attack: ')
         print(c)
       if c == 'Punch':
-        MonsterHealth = MonsterHealth - 20
-        print("Monster's Health:", MonsterHealth ,'\n' ,">> Monster's turn <<")
-        HitPoints = HitPoints - MonsterHealth
+        MonsterHealth = MonsterHealth - 50
+        print("Monster's Health:", MonsterHealth ,'\n' ,">> Monster's turn <<",'\n','Monster Hits You With', MonsterAttack, 'Hit Points')
+        HitPoints = HitPoints + MonsterAttack
         print("Hit Points:" , abs(HitPoints))
       if c == 'Block':
-          print("Monster's turn")
+          print(">> Monster's turn <<",'\n','Monster Hits You With', MonsterAttack ,'Hit Points.')
           MonsterAttack = MonsterAttack // 2
-          HitPoints = HitPoints - MonsterAttack
-          print("Hit Points:" , abs(HitPoints))
+          HitPoints = HitPoints + MonsterAttack
+          print("The Monster's Attack is now reduced to", MonsterAttack,'\n', "Hit Points:", abs(HitPoints))
     
       if MonsterHealth == 0:
         print('CONGRADULATIONS!!! >> You Have Defated The Monster << You Advaced to next level')
         Fighting = False  
-    if HitPoints == 100:
+      if HitPoints > 180:
         print('You Lose')
         Fighting = False
 
@@ -132,8 +132,7 @@ while running:
     Players.draw(screen)
     Players.HealthBar(screen)
     Players.Inventory(screen)
-    Monsters.attack(screen)
+    #Monsters.attack(screen)
     Monsters.draw(screen)
-    Players.attack(screen)
-    Potions.draw(screen)
+    #Potions.draw(screen)
     pygame.display.update()
